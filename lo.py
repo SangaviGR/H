@@ -14,7 +14,7 @@ data = json.load(f)
 flat=[]
 for i in data['neighbourhoods']:
 	flat.append(data['neighbourhoods'][i])
-        
+      
 distances=[]	
 for i in flat:
     distances.append(i['distances'])	
