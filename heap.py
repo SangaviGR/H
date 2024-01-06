@@ -29,7 +29,7 @@ def generate_multiple_paths(distances, start_point, num_paths):
         path = nearest_neighbor(distances, start_point, cities)
         total_distance = calculate_total_distance(distances, path)
         paths.append((path, total_distance))
-        print(f"Path {path}\n")
+        #print(f"Path {path}\n")
     return paths
 
 def calculate_total_distance(distances, tour):
@@ -106,3 +106,6 @@ with open(output_file_path, 'w') as output_file:
     json.dump(output_json, output_file, indent=2)
 
 print(f"Optimized paths written to {output_file_path}")
+
+op = optimized_paths[0]
+print(op)

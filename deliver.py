@@ -44,8 +44,8 @@ print("Best Delivery Slots:", best_delivery_slots)
 print("Total Distance Traveled:", best_distance)
 '''
 
-
 import json
+from l1a import *
 
 def create_delivery_slots(orders, capacity, distances):
     delivery_slots = []
@@ -69,16 +69,7 @@ def create_delivery_slots(orders, capacity, distances):
 # Use the provided data
 with open('level1a.json') as f:
     data = json.load(f)
-
-neighbourhoods_data = data["neighbourhoods"]
-neighbourhoods = {key: {"order_quantity": value["order_quantity"], "distances": value["distances"]} for key, value in neighbourhoods_data.items()}
-
-orders = list(neighbourhoods.keys())
-vehicle_capacity = data["vehicles"]["v0"]["capacity"]
-restaurant_distances = data["restaurants"]["r0"]["neighbourhood_distance"]
-
-# Create a dictionary mapping neighbourhoods to their respective distances
-restaurant_distance = {f"n{i}": distance for i, distance in enumerate(restaurant_distances)}
+    
 
 # Create delivery slots
 delivery_slots = create_delivery_slots(orders, vehicle_capacity, restaurant_distance)

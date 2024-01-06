@@ -27,6 +27,7 @@ a = np.array(distances)
 distances = {key: value["distances"] for key, value in data["neighbourhoods"].items()}
 distances.update({key: value["neighbourhood_distance"] for key, value in data["restaurants"].items()})
 
+print(distances)
 
 
 # Extract distances from the data
@@ -41,7 +42,7 @@ for n_key, n_value in data["neighbourhoods"].items():
 for r_key, r_value in data["restaurants"].items():
     distances[r_key] = {n_key: distance for n_key, distance in zip(data["neighbourhoods"].keys(), r_value["neighbourhood_distance"])}
 
-
+print("\n")
 print(distances['r0'])
 
 # Closing file
