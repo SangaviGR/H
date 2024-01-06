@@ -42,7 +42,7 @@ for r_key, r_value in data["restaurants"].items():
     distances[r_key] = {n_key: distance for n_key, distance in zip(data["neighbourhoods"].keys(), r_value["neighbourhood_distance"])}
 
 
-print(distances)
+print(distances['r0'])
 
 # Closing file
 f.close()

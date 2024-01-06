@@ -24,13 +24,12 @@ def generate_multiple_paths(distances, start_point, num_paths):
     cities = list(distances.keys())
    
     
-    for i in range(50):
+    for i in range(num_paths):
         random.shuffle(cities)
         path = nearest_neighbor(distances, start_point, cities)
-        
-        total_distance = calculate_total_distance(distances, cities)
+        total_distance = calculate_total_distance(distances, path)
         paths.append((path, total_distance))
-        print(f"Path {cities}\n")
+        print(f"Path {path}\n")
     return paths
 
 def calculate_total_distance(distances, tour):
@@ -62,11 +61,11 @@ def two_opt(tour, distances):
     return best_tour
 
 start_point = "r0"
-num_paths = 150
+num_paths = 15
 
 # Generate multiple paths
 paths = generate_multiple_paths(distances, start_point, num_paths)
-
+print(paths)
 # Optimize each path using 2-opt
 optimized_paths = []
 for path, total_distance in paths:
